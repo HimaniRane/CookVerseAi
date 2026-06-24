@@ -21,7 +21,7 @@
 
 * **Frontend**: React 18, Vite, React Router DOM, Tailwind CSS, Lucide React, Context API (State & Auth)
 * **Backend**: Spring Boot 3.3.0 (Java 17), Spring Security (JWT), Spring Data JPA
-* **Database**: H2 Relational Database (file-backed/in-memory)
+* **Database**: MySQL Relational Database
 * **AI Integration**: Groq Cloud API (Llama 3.1 8B/70B models)
 
 ---
@@ -32,7 +32,7 @@ CookVerse AI is built on a decoupled, modular **Client-Server (3-Tier) Architect
 
 * **Client Layer (Frontend)**: A modern Single-Page Application (SPA) built with React 18 and Vite. It manages global authentication, routing, and user interface states while communicating with the backend via stateless HTTP REST requests.
 * **Application Layer (Backend)**: A robust REST API built on Spring Boot 3.3.0. It handles user authentication (JWT), role-based authorization, recipe management logic, and interacts with the Groq Cloud API to generate and translate recipes.
-* **Storage Layer (Database)**: An H2 relational database managed through Hibernate and Spring Data JPA to store and query details for users, recipes, and user-favorited items.
+* **Storage Layer (Database)**: A MySQL relational database managed through Hibernate and Spring Data JPA to store and query details for users, recipes, and user-favorited items.
 
 ---
 
