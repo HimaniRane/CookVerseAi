@@ -17,20 +17,14 @@ public class DataSeeder {
 
     @PostConstruct
     public void seedData() {
-        com.cookverse.ai.model.User admin = userRepository.findByEmail("admin@cookverse.com").orElse(null);
-        if (admin == null) {
-            admin = new User();
+        if (!userRepository.existsByEmail("admin@cookverse.com")) {
+            User admin = new User();
             admin.setName("System Administrator");
             admin.setEmail("admin@cookverse.com");
             admin.setPassword(passwordEncoder.encode("admin123"));
             admin.setRole(Role.ADMIN);
             userRepository.save(admin);
             System.out.println("✅ Seeded Admin User: admin@cookverse.com / admin123");
-        } else {
-            admin.setPassword(passwordEncoder.encode("admin123"));
-            admin.setRole(Role.ADMIN);
-            userRepository.save(admin);
-            System.out.println("🔄 Ensured Admin User has correct credentials: admin@cookverse.com / admin123");
         }
     }
 }
