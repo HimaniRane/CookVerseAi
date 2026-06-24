@@ -33,9 +33,3 @@ CookVerse AI is built on a decoupled, modular **Client-Server (3-Tier) Architect
 * **Client Layer (Frontend)**: A modern Single-Page Application (SPA) built with React 18 and Vite. It manages global authentication, routing, and user interface states while communicating with the backend via stateless HTTP REST requests.
 * **Application Layer (Backend)**: A robust REST API built on Spring Boot 3.3.0. It handles user authentication (JWT), role-based authorization, recipe management logic, and interacts with the Groq Cloud API to generate and translate recipes.
 * **Storage Layer (Database)**: A MySQL relational database managed through Hibernate and Spring Data JPA to store and query details for users, recipes, and user-favorited items.
-
----
-
-## 🔒 Security Best Practices
-* **Never commit API keys or passwords directly to Git.** The backend is configured to read the `GROQ_API_KEY` from the system's environment variables.
-* The `application.properties` file contains `${GROQ_API_KEY:gsk_your_key_placeholder}` to ensure the active credential is kept safe from repository scanning.
