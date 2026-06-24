@@ -1,1 +1,87 @@
-# CookVerseAi
+# CookVerse AI 🍳🤖
+
+**CookVerse AI** is a modern, responsive recipe management portal and AI-powered cooking assistant. It helps users reduce food waste by generating gourmet recipes dynamically using whatever ingredients they have in their fridge (Zero-Waste Cooking) and offers multi-language support (including Marathi, Hindi, Spanish, and French) with an elegant, custom design.
+
+---
+
+## ✨ Key Features
+
+* **Zero-Waste AI Recipe Generation**: Enter your available ingredients or a recipe name, and the integrated Groq Llama 3.1 AI model will generate a structured gourmet recipe (title, category, ingredients list, cooking steps, difficulty, and cooking time).
+* **Multi-Language Translation**: Translate any recipe on-the-fly to languages like Hindi, Marathi, Spanish, French, and more.
+* **Role-Based Portals**:
+  * **User Portal**: Manage recipes, save favorites, generate AI recipes, and customize profiles.
+  * **Admin Portal**: View platform-wide analytics (total users, recipes, and AI runs), manage/moderate all users, curate system recipes, and edit/delete any recipe.
+* **Interactive AI Sandbox**: Users can preview, edit, and fine-tune AI-generated recipes before saving them to their collection.
+* **Fail-Safe Mechanism**: If the AI API is unconfigured or unavailable, the backend seamlessly falls back to a mock culinary lookup dictionary to ensure a uninterrupted demo experience.
+* **Premium UX/UI**: Styled with a cohesive warm amber color palette, Outfit typography, dark mode support, and clean responsive transitions.
+
+---
+
+## 🛠️ Technology Stack
+
+* **Frontend**: React 18, Vite, React Router DOM, Tailwind CSS, Lucide React, Context API (State & Auth)
+* **Backend**: Spring Boot 3.3.0 (Java 17), Spring Security (JWT), Spring Data JPA
+* **Database**: H2 Relational Database (file-backed/in-memory)
+* **AI Integration**: Groq Cloud API (Llama 3.1 8B/70B models)
+
+---
+
+## 🏗️ Architecture
+
+```
+[ Frontend: React SPA ] <--- HTTP REST (JSON / JWT) ---> [ Backend: Spring Boot REST API ] <---> [ DB: H2 / Hibernate ]
+         ^                                                          |
+         |                                                          v
+  [ UI Assets / Vite ]                                   [ LLM: Groq Llama 3.1 API ]
+```
+
+---
+
+## 🚀 Getting Started & Setup
+
+### Prerequisites
+* Java Development Kit (JDK) 17 or higher
+* Node.js (v18 or higher) and npm
+* Apache Maven
+
+### 1. Setup the Backend
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+2. Configure your environment variables. To enable the AI generation, you must set your Groq API key:
+   * **Windows (PowerShell)**:
+     ```powershell
+     $env:GROQ_API_KEY="your_groq_api_key"
+     ```
+   * **macOS/Linux**:
+     ```bash
+     export GROQ_API_KEY="your_groq_api_key"
+     ```
+3. Run the Spring Boot application using Maven:
+   ```bash
+   mvn spring-boot:run
+   ```
+   The backend will start on `http://localhost:8080`.
+   *(A default Admin account is automatically seeded on boot with username: `admin@cookverse.com` and password: `admin123`)*
+
+### 2. Setup the Frontend
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+2. Install the required node modules:
+   ```bash
+   npm install
+   ```
+3. Run the Vite development server:
+   ```bash
+   npm run dev
+   ```
+   The frontend will start on `http://localhost:5173`.
+
+---
+
+## 🔒 Security Best Practices
+* **Never commit API keys or passwords directly to Git.** The backend is configured to read the `GROQ_API_KEY` from the system's environment variables.
+* The `application.properties` file contains `${GROQ_API_KEY:gsk_your_key_placeholder}` to ensure the active credential is kept safe from repository scanning.
