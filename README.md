@@ -37,51 +37,6 @@
 
 ---
 
-## 🚀 Getting Started & Setup
-
-### Prerequisites
-* Java Development Kit (JDK) 17 or higher
-* Node.js (v18 or higher) and npm
-* Apache Maven
-
-### 1. Setup the Backend
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Configure your environment variables. To enable the AI generation, you must set your Groq API key:
-   * **Windows (PowerShell)**:
-     ```powershell
-     $env:GROQ_API_KEY="your_groq_api_key"
-     ```
-   * **macOS/Linux**:
-     ```bash
-     export GROQ_API_KEY="your_groq_api_key"
-     ```
-3. Run the Spring Boot application using Maven:
-   ```bash
-   mvn spring-boot:run
-   ```
-   The backend will start on `http://localhost:8080`.
-   *(A default Admin account is automatically seeded on boot with username: `admin@cookverse.com` and password: `admin123`)*
-
-### 2. Setup the Frontend
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-2. Install the required node modules:
-   ```bash
-   npm install
-   ```
-3. Run the Vite development server:
-   ```bash
-   npm run dev
-   ```
-   The frontend will start on `http://localhost:5173`.
-
----
-
 ## 🔒 Security Best Practices
 * **Never commit API keys or passwords directly to Git.** The backend is configured to read the `GROQ_API_KEY` from the system's environment variables.
 * The `application.properties` file contains `${GROQ_API_KEY:gsk_your_key_placeholder}` to ensure the active credential is kept safe from repository scanning.
