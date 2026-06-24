@@ -26,14 +26,13 @@
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Architectural Design
 
-```
-[ Frontend: React SPA ] <--- HTTP REST (JSON / JWT) ---> [ Backend: Spring Boot REST API ] <---> [ DB: H2 / Hibernate ]
-         ^                                                          |
-         |                                                          v
-  [ UI Assets / Vite ]                                   [ LLM: Groq Llama 3.1 API ]
-```
+CookVerse AI is built on a decoupled, modular **Client-Server (3-Tier) Architecture**:
+
+* **Client Layer (Frontend)**: A modern Single-Page Application (SPA) built with React 18 and Vite. It manages global authentication, routing, and user interface states while communicating with the backend via stateless HTTP REST requests.
+* **Application Layer (Backend)**: A robust REST API built on Spring Boot 3.3.0. It handles user authentication (JWT), role-based authorization, recipe management logic, and interacts with the Groq Cloud API to generate and translate recipes.
+* **Storage Layer (Database)**: An H2 relational database managed through Hibernate and Spring Data JPA to store and query details for users, recipes, and user-favorited items.
 
 ---
 
