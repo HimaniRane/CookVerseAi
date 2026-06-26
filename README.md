@@ -15,7 +15,6 @@
 * **Zero-Waste AI Recipe Generation**:
   * **Generate by Ingredients**: Users enter ingredients available in their fridge, and the AI (Groq Llama 3.1) constructs a custom recipe.
   * **Generate by Name**: Users type a recipe name, and the AI designs the steps and ingredients.
-  * **Fail-Safe Mechanism**: If the AI API is unconfigured/offline, the system gracefully falls back to a database lookup lookup-dictionary to avoid errors.
   * **Interactive AI Sandbox (Preview & Edit)**: Before saving an AI-generated recipe, users can preview and edit it directly within a pre-populated form.
 * **On-the-Fly Translation**:
   * Seamlessly translates recipe titles, categories, ingredients, and steps into multiple languages (Marathi, Hindi, Spanish, French, Chinese) using AI. Users can toggle back to the "Original Language" instantly.
